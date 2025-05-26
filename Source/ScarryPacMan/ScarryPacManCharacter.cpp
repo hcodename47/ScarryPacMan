@@ -12,9 +12,6 @@
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
-//////////////////////////////////////////////////////////////////////////
-// AScarryPacManCharacter
-
 AScarryPacManCharacter::AScarryPacManCharacter()
 {
 	// Set size for collision capsule
@@ -33,10 +30,7 @@ AScarryPacManCharacter::AScarryPacManCharacter()
 	Mesh1P->bCastDynamicShadow = false;
 	Mesh1P->CastShadow = false;
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
-
 }
-
-//////////////////////////////////////////////////////////////////////////// Input
 
 void AScarryPacManCharacter::NotifyControllerChanged()
 {
@@ -57,8 +51,6 @@ void AScarryPacManCharacter::SetupPlayerInputComponent(UInputComponent* PlayerIn
 	// Set up action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-		EnhancedInputComponent->BindAction(SwitchToMapAction, ETriggerEvent::Started, this, &AScarryPacManCharacter::SwitchToMap);
-
 		// Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AScarryPacManCharacter::Move);
 
@@ -70,7 +62,6 @@ void AScarryPacManCharacter::SetupPlayerInputComponent(UInputComponent* PlayerIn
 		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
 }
-
 
 void AScarryPacManCharacter::Move(const FInputActionValue& Value)
 {

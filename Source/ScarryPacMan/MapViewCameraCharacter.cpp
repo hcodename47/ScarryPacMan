@@ -41,15 +41,4 @@ void AMapViewCameraCharacter::NotifyControllerChanged()
 // Called to bind functionality to input
 void AMapViewCameraCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
-	// Set up action bindings
-	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
-	{
-		EnhancedInputComponent->BindAction(SwitchBackToPlayerAction, ETriggerEvent::Started, this, &AMapViewCameraCharacter::SwitchToPlayer);
-	}
-	else
-	{
-		UE_LOG(LogMapCameraCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
-	}
-
 }
-

@@ -28,9 +28,6 @@ class SCARRYPACMAN_API AMapViewCameraCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* DefaultMappingContext;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta=(AllowPrivateAccess = "true"))
-	UInputAction* SwitchBackToPlayerAction;
-
 public:
 	// Sets default values for this character's properties
 	AMapViewCameraCharacter();
@@ -39,7 +36,4 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
-
-	UFUNCTION(BlueprintImplementableEvent, Category = "Input")
-	void SwitchToPlayer(const FInputActionValue& Value);
 };
